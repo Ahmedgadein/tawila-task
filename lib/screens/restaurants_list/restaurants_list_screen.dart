@@ -2,12 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:tawila/resources/theme.dart';
 import 'package:tawila/screens/restaurants_list/restaurant_lists_bloc.dart';
 import 'package:tawila/screens/restaurants_list/widgets/restaurant_list_item.dart';
 import 'package:tawila/screens/restaurants_list/widgets/search_widget.dart';
 
 class RestaurantsList extends StatefulWidget {
-  RestaurantsList({super.key});
+  const RestaurantsList({super.key});
 
   @override
   State<RestaurantsList> createState() => _RestaurantsListState();
@@ -45,7 +46,7 @@ class _RestaurantsListState extends State<RestaurantsList> {
       backgroundColor: Colors.white,
       // Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        backgroundColor: Colors.yellow.shade400,
+        backgroundColor: TawilaColors.yellow,
         // Theme.of(context).colorScheme.background,
         title: Image(
           image: const AssetImage('assets/images/tawila_logo.png'),
@@ -104,7 +105,7 @@ Widget _buildBody() {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: Colors.yellow.shade400,
+              color: TawilaColors.yellow,
               borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(20),
                 bottomRight: Radius.circular(20),
@@ -115,6 +116,7 @@ Widget _buildBody() {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
+                // Todo: Update name dynamically from backend
                 Text(
                   "Hello, Ahmed",
                   style: TextStyle(
@@ -122,19 +124,19 @@ Widget _buildBody() {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text(
+                const Text(
                   "Find Your Food",
                   style: TextStyle(
-                    color: Colors.black87,
+                    color: TawilaColors.textBlack,
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                SearchWidget(),
-                SizedBox(
+                const SearchWidget(),
+                const SizedBox(
                   height: 15,
                 )
               ],

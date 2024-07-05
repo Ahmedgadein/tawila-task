@@ -15,8 +15,8 @@ class OptionChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 3.0, vertical: 3.0),
-      margin: EdgeInsets.all(1.0),
+      padding: const EdgeInsets.symmetric(horizontal: 3.0, vertical: 3.0),
+      margin: const EdgeInsets.all(1.0),
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(10),
@@ -33,7 +33,7 @@ class OptionChip extends StatelessWidget {
               color: color,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 4,
           ),
           Text(

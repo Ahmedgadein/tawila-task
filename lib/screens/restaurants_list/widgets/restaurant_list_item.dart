@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tawila/models/restaurant.dart';
+import '';
 import 'package:tawila/screens/restaurants_list/widgets/option_chip.dart';
 import 'package:shimmer/shimmer.dart';
+
+import '../../../resources/theme.dart';
 
 class RestaurantListItem extends StatelessWidget {
   final Restaurant restaurant;
@@ -19,7 +22,7 @@ class RestaurantListItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              offset: Offset(3, 3),
+              offset: const Offset(3, 3),
               color: Colors.grey.shade300,
               blurRadius: 5,
             )
@@ -49,8 +52,8 @@ class RestaurantListItem extends StatelessWidget {
             children: [
               OptionChip(
                 color: restaurant.hasDelivery != null && restaurant.hasDelivery!
-                    ? Colors.teal
-                    : Colors.red.shade600,
+                    ? TawilaColors.teal
+                    : TawilaColors.red,
                 text: "Delivery",
                 icon: restaurant.hasDelivery != null && restaurant.hasDelivery!
                     ? Icons.delivery_dining_rounded
@@ -59,8 +62,8 @@ class RestaurantListItem extends StatelessWidget {
               OptionChip(
                 color: restaurant.hasReservation != null &&
                         restaurant.hasReservation!
-                    ? Colors.teal
-                    : Colors.red.shade600,
+                    ? TawilaColors.teal
+                    : TawilaColors.red,
                 text: "Reservation",
                 icon: restaurant.hasReservation != null &&
                         restaurant.hasReservation!
@@ -73,16 +76,16 @@ class RestaurantListItem extends StatelessWidget {
             padding: const EdgeInsets.only(top: 12.0),
             child: Text(
               restaurant.name!,
-              style: TextStyle(
+              style: const TextStyle(
                 fontFamily: 'Anton',
-                color: Colors.black87,
+                color: TawilaColors.textBlack,
                 fontSize: 29,
               ),
             ),
           ),
           const Spacer(),
           Container(
-            margin: EdgeInsets.symmetric(vertical: 12.0, horizontal: 4.0),
+            margin: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 4.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -95,7 +98,7 @@ class RestaurantListItem extends StatelessWidget {
                       color: Colors.yellow.shade800,
                     ),
                     Text(
-                      "${restaurant.rating!}",
+                      restaurant.rating!,
                       style: const TextStyle(
                         fontSize: 15,
                         color: Colors.black38,
@@ -107,17 +110,6 @@ class RestaurantListItem extends StatelessWidget {
                 Text(restaurant.affordability == null
                     ? "💲"
                     : "💲" * restaurant.affordability!)
-                // Row(
-                //   mainAxisSize: MainAxisSize.min,
-                //   children: [
-                //     for (var i = 0; i < 3; i++) ...[
-                //       Icon(
-                //         Icons.attach_money_rounded,
-                //         color: Colors.green.shade900,
-                //       )
-                //     ]
-                //   ],
-                // )
               ],
             ),
           )
